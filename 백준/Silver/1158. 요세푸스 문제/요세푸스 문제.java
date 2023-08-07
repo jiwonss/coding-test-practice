@@ -7,31 +7,31 @@ import java.util.List;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String[] temp = br.readLine().split(" ");
 		int n = Integer.parseInt(temp[0]);
 		int k = Integer.parseInt(temp[1]);
 		
-		List<Integer> people = new ArrayList<>();
-		for (int i = 0; i < n; i++) {
-			people.add(i + 1);
+		List<Integer> list = new ArrayList<>();
+		for (int i = 1; i <= n; i++) {
+			list.add(i);
 		}
-
+		
 		StringBuilder sb = new StringBuilder();
-		int idx = k - 1;
 		sb.append("<");
+		int idx = k - 1;
 		for (int i = 0; i < n; i++) {
-			if (idx < people.size()) {
-				sb.append(people.get(idx));
-				people.remove(idx);
+			if (idx < list.size()) {
+				sb.append(list.get(idx));
+				list.remove(idx);
 			} else {
-				idx = idx % people.size();
-				sb.append(people.get(idx));
-				people.remove(idx);
+				idx %= list.size();
+				sb.append(list.get(idx));
+				list.remove(idx);
 			}
 			idx += k - 1;
-			if (!people.isEmpty()) {
+			if (i < n - 1) {
 				sb.append(", ");
 			}
 		}
