@@ -41,7 +41,7 @@ public class Main {
 		}
 		
 		// 손님이 먹을 수 있는 초밥 가짓수의 최댓값
-		int result = visited[c] != 0? cnt - 1 : cnt;
+		int result = cnt;
 		for (int i = 1; i <= N; i++) {
 			if (result <= cnt) {
 				result = cnt;
