@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 public class Main {
 	
 	static int N, result;
-	static int[][] status;
+	static int[][] map;
 	static int[] dx = {0, 1, 1}, dy = {1, 0, 1};
 
 	private static void dfs(int x, int y, int d) {
@@ -17,45 +17,35 @@ public class Main {
 		
 		for (int i = 0; i < 3; i++) {
 			if ((d == 0 && i == 1) || (d == 1 && i == 0)) continue;
-			
 			int nx = x + dx[i];
 			int ny = y + dy[i];
-			if (!isIn(nx, ny)) continue;
-			
-			if (i == 0 || i == 1) {
-				if (status[nx][ny] != 0) continue;				
-			}
-			if (i == 2) {
-				int cnt = 0;
-				for (int j = 0; j < 3; j++) {
-					int nnx = x + dx[j];
-					int nny = y + dy[j];
-					if (!isIn(nnx, nny)) continue;
-					if (status[nnx][nny] != 0) continue;
-					cnt++;
-				}
-				if (cnt != 3) continue;
-			}
+			if (!isMove(nx, ny, i)) continue;
 			dfs(nx, ny, i);
 		}
 	}
 	
-	private static boolean isIn(int x, int y) {
+	private static boolean isMove(int x, int y, int d) {
 		if (x < 0 || x >= N || y < 0 || y >= N) return false;
+		if ((d == 0 || d == 1) && map[x][y] != 0) return false;
+		if (d == 2) {
+			int nx = x - dx[d], ny = y - dy[d];
+			if (nx + 1 >= N || ny + 1 >= N) return false;
+			if (map[nx + 1][ny] != 0 || map[nx][ny + 1] != 0 || map[nx + 1][ny + 1] != 0) return false;		
+		}	
 		return true;
 	}
-	
+
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = null;
 		
 		N = Integer.parseInt(br.readLine());
 		
-		status = new int[N][N];
+		map = new int[N][N];
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < N; j++) {
-				status[i][j] = Integer.parseInt(st.nextToken());
+				map[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
 
