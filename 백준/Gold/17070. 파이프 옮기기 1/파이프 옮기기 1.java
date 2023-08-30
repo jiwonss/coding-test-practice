@@ -9,9 +9,7 @@ public class Main {
 	static int[][] status;
 	static int[] dx = {0, 1, 1}, dy = {1, 0, 1};
 
-	private static void dfs(int[] end, int d) {
-		int x, y;
-		x = end[0]; y = end[1];
+	private static void dfs(int x, int y, int d) {
 		if (x == N - 1 && y == N - 1) {
 			result++;
 			return;
@@ -25,7 +23,7 @@ public class Main {
 			if (!isIn(nx, ny)) continue;
 			
 			if (i == 0 || i == 1) {
-				if (status[nx][ny] == 1 || status[nx][ny] == 2) continue;				
+				if (status[nx][ny] != 0) continue;				
 			}
 			if (i == 2) {
 				int cnt = 0;
@@ -33,15 +31,12 @@ public class Main {
 					int nnx = x + dx[j];
 					int nny = y + dy[j];
 					if (!isIn(nnx, nny)) continue;
-					if (status[nnx][nny] == 1 || status[nnx][nny] == 2) continue;
+					if (status[nnx][nny] != 0) continue;
 					cnt++;
 				}
 				if (cnt != 3) continue;
 			}
-			
-			status[nx][ny] = 2;
-			dfs(new int[] {nx, ny}, i);
-			status[nx][ny] = 0;
+			dfs(nx, ny, i);
 		}
 	}
 	
@@ -63,14 +58,9 @@ public class Main {
 				status[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		
-		if (status[N - 1][N - 1] == 1) {
-			System.out.println(0);
-			System.exit(0);
-		}
-		
+
 		result = 0;
-		dfs(new int[] {0, 1}, 0);
+		dfs(0, 1, 0);
 		System.out.println(result);
 	}
 
