@@ -11,10 +11,10 @@ public class Main {
 	static int[] visited;
 	static int[][] W;
 
+	// k : 깊이, cost : 현재까지 도시들을 이동하면서 드는 비용, last : 제일 최근 방문한 도시
 	private static void dfs(int k, int cost, int last) {
 		if (result <= cost) return; // 가지치기
 		
-		// 제일 최근에 방문한 도시
 		if (k == N - 1) {
 			int start = 0; // 처음 방문한 도시
 			// 제일 마지막에 방문한 도시에서 처음 방문한 도시의 비용이 0이 아닌 경우, result 갱신
@@ -50,10 +50,7 @@ public class Main {
 		visited = new int[N];
 		result = Integer.MAX_VALUE;
 		
-		Deque<Integer> dq = new ArrayDeque<>();
 		visited[0] = 1;
-		dq.offer(0);
-		
 		dfs(0, 0, 0);
 		System.out.println(result);
 	}
