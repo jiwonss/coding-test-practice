@@ -14,6 +14,7 @@ public class Main {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = null;
+		StringBuilder sb = new StringBuilder();
 		
 		S = br.readLine();
 		map = new int[26][S.length() + 1];
@@ -35,8 +36,9 @@ public class Main {
 			a = st.nextToken().charAt(0);
 			l = Integer.parseInt(st.nextToken()) + 1;
 			r = Integer.parseInt(st.nextToken()) + 1;
-			System.out.println(sum[a - 'a'][r] - sum[a - 'a'][l - 1]);
+			sb.append(sum[a - 'a'][r] - sum[a - 'a'][l - 1]).append("\n");
 		}
+		System.out.println(sb);
 	}
 
 }
