@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
@@ -35,9 +36,9 @@ public class Main {
 		
 		map = new int[M][N];
 		for (int i = 0; i < M; i++) {
-			String[] temp = br.readLine().split("");
+			String temp = br.readLine();
 			for (int j = 0; j < N; j++) {
-				map[i][j] = temp[j].charAt(0) - '0';
+				map[i][j] = temp.charAt(j) - '0';
 			}
 		}
 	}
@@ -45,7 +46,7 @@ public class Main {
 	public static String solve() {
 		visited = new boolean[M][N];
 		for (int i = 0; i < N; i++) {
-			if (map[0][i] == 1) continue;
+			if (map[0][i] == 1 || visited[0][i]) continue;
 			if (bfs(0, i)) return "YES";
 		}
 		return "NO";
@@ -61,9 +62,9 @@ public class Main {
 			for (int i = 0; i < 4; i++) {
 				int nx = p.x + dx[i];
 				int ny = p.y + dy[i];
-				if (nx == M) return true;
 				if (outOfBounds(nx, ny)) continue;
 				if (visited[nx][ny] || map[nx][ny] == 1) continue;
+				if (nx == M - 1) return true;
 				visited[nx][ny] = true;
 				q.offer(new Point(nx, ny));
 			}
