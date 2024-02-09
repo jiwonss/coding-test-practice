@@ -7,10 +7,10 @@ import java.util.StringTokenizer;
 public class Main {
 	
 	static class Info {
-		long x; 
-		long y;
-		long v;
-		Info(long x, long y, long v) {
+		int x; 
+		int y;
+		int v;
+		Info(int x, int y, int v) {
 			this.x = x;
 			this.y = y;
 			this.v = v;
@@ -41,7 +41,7 @@ public class Main {
 	public static void solve() {
 		Arrays.sort(arr);
 		
-		long sum = 0;
+		int sum = 0;
 		int start = 0, end = N - 1;
 		while (start < end) {
 			sum = arr[start] + arr[end];
@@ -55,7 +55,7 @@ public class Main {
 			}
 		}
 		
-		System.out.println(arr[(int) info.x] + " " + arr[(int) info.y]);
+		System.out.println(arr[info.x] + " " + arr[info.y]);
 	}
 	
 }
