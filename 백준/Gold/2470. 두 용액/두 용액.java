@@ -5,24 +5,12 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
-	
-	static class Info {
-		int x; 
-		int y;
-		int v;
-		Info(int x, int y, int v) {
-			this.x = x;
-			this.y = y;
-			this.v = v;
-		}
-	}
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	
-	static int N, result;
+	static int N, x, y, result;
 	static int[] arr;
-	static Info info = new Info(0, 0, Integer.MAX_VALUE);
 	
 	public static void main(String[] args) throws IOException {
 		init();
@@ -43,10 +31,12 @@ public class Main {
 		
 		int sum = 0;
 		int start = 0, end = N - 1;
+		x = 0; y = 0; result = Integer.MAX_VALUE;
 		while (start < end) {
 			sum = arr[start] + arr[end];
-			if (Math.abs(sum) < info.v) {
-				info = new Info(start, end, Math.abs(sum));
+			if (Math.abs(sum) < result) {
+				result = Math.abs(sum);
+				x = start; y = end;
 			}
 			if (sum < 0) {
 				start++;
@@ -55,7 +45,7 @@ public class Main {
 			}
 		}
 		
-		System.out.println(arr[info.x] + " " + arr[info.y]);
+		System.out.println(arr[x] + " " + arr[y]);
 	}
 	
 }
