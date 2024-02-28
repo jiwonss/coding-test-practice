@@ -10,7 +10,7 @@ public class Main {
 	static StringBuilder sb = new StringBuilder();;
 	
 	static int N, M;
-	static int[] arr, result;
+	static int[] arr;
 	
 	public static void main(String[] args) throws IOException {
 		init();
@@ -23,25 +23,20 @@ public class Main {
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
 		
-		arr = new int[N];
-		result = new int[M];
-		
-		for (int i = 0; i < N; i++) {
-			arr[i] = i + 1;
-		}
+		arr = new int[M];
 	}
 	
 	public static void solve(int k, int start) {
 		if (k == M) {
 			for (int i = 0; i < M; i++) {
-				sb.append(result[i]).append(" ");
+				sb.append(arr[i]).append(" ");
 			}
 			sb.append("\n");
 			return;
 		}
 		
 		for (int i = start; i < N; i++) {
-			result[k] = arr[i];
+			arr[k] = i + 1;
 			solve(k + 1, i + 1);
 		}
 	}
