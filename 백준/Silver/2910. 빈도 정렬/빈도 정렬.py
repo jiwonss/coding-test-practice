@@ -2,18 +2,20 @@ from sys import stdin
 from collections import defaultdict
 input = stdin.readline
 
-N, C = map(int, input().split())
-arr = list(map(int, input().split()))
 
-dic = defaultdict(list)
-for i, a in enumerate(arr):
-    if (dic.get(a, 0)):
-        dic[a][1] += 1
-    else:
-        dic[a].append(i)
-        dic[a].append(1)
+def solve():
+    N, C = map(int, input().split())
+    arr = list(map(int, input().split()))
 
-temp = sorted(dic.items(), key=lambda x : (-x[1][1], x[1][0]))
-for k, v in temp:
-    for _ in range(v[1]):
-        print(k, end=" ")
+    temp = defaultdict(int)
+    for a in arr:
+        temp[a] += 1
+
+    result = sorted(temp.items(), key=lambda x: -x[1])
+    for k, v in result:
+        for _ in range(v):
+            print(k, end=' ')
+
+
+if __name__ == "__main__":
+    solve()
