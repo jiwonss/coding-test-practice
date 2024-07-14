@@ -1,18 +1,22 @@
-n = int(input())
+from sys import stdin
+input = stdin.readline
 
 
-def hanoi(n, a, b, c):
+def hanoi(a, b, n):
     if n == 1:
-        print(a, c)
-    else:
-        hanoi(n - 1, a, c, b)
-        print(a, c)
-        hanoi(n - 1, b, a, c)
+        print(a, b)
+        return
+    hanoi(a, 6 - a - b, n - 1)
+    print(a, b)
+    hanoi(6 - a - b, b, n - 1)
 
 
-sum = 1
-for _ in range(n - 1):
-    sum = sum * 2 + 1
+def solve():
+    N = int(input())
 
-print(sum)
-hanoi(n, 1, 2, 3)
+    print((1 << N) - 1)
+    hanoi(1, 3, N)
+
+
+if __name__ == "__main__":
+    solve()
