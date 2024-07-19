@@ -1,15 +1,19 @@
 from sys import stdin
 input = stdin.readline
 
-k, l = map(int, input().split())
-waiting_list = {}
-for i in range(l):
-    t = input().strip()
-    waiting_list[t] = i
 
-cnt = 0
-for key, value in sorted(waiting_list.items(), key=lambda x : x[1]):
-    cnt += 1
-    if cnt > k:
-        break
-    print(key)
+def solve():
+    K, L = map(int, input().split())
+
+    waiting_list = {}
+    for i in range(L):
+        id = input().strip()
+        waiting_list[id] = i
+
+    result = sorted(waiting_list.items(), key=lambda x: x[1])
+    for k, v in result[:K]:
+        print(k)
+
+
+if __name__ == "__main__":
+    solve()
