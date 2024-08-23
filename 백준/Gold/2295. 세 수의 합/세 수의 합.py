@@ -1,19 +1,23 @@
 from sys import stdin
 input = stdin.readline
 
-n = int(input())
-u = set()
-for _ in range(n):
-    u.add(int(input()))
 
-result = set()
-for i in u:
-    for j in u:
-        result.add(i + j)
+def solve():
+    N = int(input())
+    U = set([int(input()) for _ in range(N)])
 
-answer = []
-for i in u:
-    for j in u:
-        if (i - j) in result:
-            answer.append(i)
-print(sorted(answer)[-1])
+    temp = set()
+    for x in U:
+        for y in U:
+            temp.add(x + y)
+
+    result = 0
+    for x in U:
+        for y in U:
+            if (x - y) in temp:
+                result = max(result, x)
+    print(result)
+
+
+if __name__ == "__main__":
+    solve()
