@@ -28,7 +28,7 @@ def check():
             if out_of_bounds(nx, ny) or visited[nx][ny]:
                 continue
             next_idx = nx * 5 + ny
-            if next_idx in arr:
+            if is_selected[next_idx]:
                 cnt += 1
                 visited[nx][ny] = 1
                 q.append([nx, ny])
@@ -49,20 +49,24 @@ def form(k, idx, y_cnt):
     x, y = idx // N, idx % N
     if chart[x][y] == 'S':
         arr[k] = idx
+        is_selected[idx] = 1
         form(k + 1, idx + 1, y_cnt)
+        is_selected[idx] = 0
     else:
         arr[k] = idx
+        is_selected[idx] = 1
         form(k + 1, idx + 1, y_cnt + 1)
+        is_selected[idx] = 0
     form(k, idx + 1, y_cnt)
 
 
 def solve():
-    global N, chart, arr, result
+    global N, chart, arr, is_selected, result
 
     N = 5
     chart = [list(input().strip()) for _ in range(N)]
 
-    arr, result = [0] * 7, 0
+    arr, is_selected, result = [0] * 7, [0] * 25, 0
     form(0, 0, 0)
     print(result)
 
