@@ -1,15 +1,19 @@
 from sys import stdin
 input = stdin.readline
 
-n = int(input())
-num = set(map(int, input().split()))
-m = int(input())
-cards = list(map(int, input().split()))
 
-answer = []
-for card in cards:
-    if card in num:
-        answer.append(1)
-    else:
-        answer.append(0)
-print(*answer)
+def solve():
+    N = int(input())
+    card = set(map(int, input().split()))
+    M = int(input())
+    arr = list(map(int, input().split()))
+
+    for i in range(M):
+        if arr[i] in card:
+            print(1, end=' ')
+        else:
+            print(0, end=' ')
+
+
+if __name__ == "__main__":
+    solve()
