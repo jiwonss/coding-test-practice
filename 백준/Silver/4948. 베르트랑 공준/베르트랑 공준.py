@@ -1,16 +1,27 @@
-# 에라토스테네스의 체
-def prime_list(n):
-    sieve = [True] * n
-    m = int(n ** 0.5)
-    for i in range(2, m + 1):
-        if sieve[i] == True:
-            for j in range(i + i, n, i):
-                sieve[j] = False
+from sys import stdin
+input = stdin.readline
 
-    return [i for i in range(2, n) if sieve[i] == True]
 
-while 1:
-    n = int(input())
-    if n == 0: break
-    li = prime_list(2 * n + 1)
-    print(len([i for i in li if i > n]))
+def count_prime_number(a, b):
+    sieve = [1] * (b + 1)
+    sieve[0] = sieve[1] = 0
+
+    for i in range(2, int(b ** 0.5) + 1):
+        for j in range(i, b, i):
+            if sieve[j]:
+                sieve[j] = 0
+    return sieve[a:b].count(1)
+
+
+def solve():
+    while True:
+        n = int(input())
+
+        if n == 0:
+            return
+
+        print(count_prime_number(n + 1, 2 * n + 1))
+
+
+if __name__ == "__main__":
+    solve()
