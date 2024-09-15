@@ -3,52 +3,30 @@ from sys import stdin
 input = stdin.readline
 
 
-def calc():
-    total = A[0]
-    for i in range(1, N):
-        if op[i - 1] == 0:
-            total += A[i]
-        if op[i - 1] == 1:
-            total -= A[i]
-        if op[i - 1] == 2:
-            total *= A[i]
-        if op[i - 1] == 3:
-            total = int(total / A[i])
-    return total
-
-
-def select(k):
+def calc(k, total, plus, minus, multi, div):
     if k == N - 1:
-        result.append(calc())
+        result.append(total)
         return
 
-    for i in range(N - 1):
-        if visited[i]:
-            continue
-        visited[i] = 1
-        op.append(op_list[i])
-        select(k + 1)
-        op.pop()
-        visited[i] = 0
+    if plus:
+        calc(k + 1, total + A[k + 1], plus - 1, minus, multi, div)
+    if minus:
+        calc(k + 1, total - A[k + 1], plus, minus - 1, multi, div)
+    if multi:
+        calc(k + 1, total * A[k + 1], plus, minus, multi - 1, div)
+    if div:
+        calc(k + 1, int(total / A[k + 1]), plus, minus, multi, div - 1)
 
 
 def solve():
-    global N, A, op_list, op, visited, result
+    global N, A, op, result
 
     N = int(input())
     A = list(map(int, input().split()))
-    cnt = list(map(int, input().split()))
+    op = list(map(int, input().split()))
 
-    op_list = []
-    for i in range(4):
-        if cnt[i] == 0:
-            continue
-        for _ in range(cnt[i]):
-            op_list.append(i)
-
-    op, visited = [], [0] * (N - 1)
     result = []
-    select(0)
+    calc(0, A[0], op[0], op[1], op[2], op[3])
     print(max(result))
     print(min(result))
 
