@@ -1,7 +1,5 @@
-from sys import maxsize
-
 def solution(n, times):
-    start, end = 0, maxsize
+    start, end = 0, times[-1] * n
     while start < end:
         mid = (start + end) // 2
         
