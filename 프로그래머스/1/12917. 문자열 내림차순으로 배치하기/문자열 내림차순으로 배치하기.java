@@ -5,10 +5,10 @@ class Solution {
         char[] ch = s.toCharArray();
         Arrays.sort(ch);
         
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
         for (int i = s.length() - 1; i > -1; i--) {
-            answer += ch[i];
+            sb.append(ch[i]);
         }
-        return answer;
+        return sb.toString();
     }
 }
