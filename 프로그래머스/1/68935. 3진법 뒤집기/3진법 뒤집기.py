@@ -1,8 +1,7 @@
 def solution(n):
     result = []
     while n != 0:
-        div, mod = divmod(n, 3)
-        result.append(mod)
+        result.append(n % 3)
         n //= 3
     
     answer = 0
