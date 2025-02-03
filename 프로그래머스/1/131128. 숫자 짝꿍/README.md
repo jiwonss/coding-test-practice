@@ -1,10 +1,10 @@
 # [level 1] 숫자 짝꿍 - 131128 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131128) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131128?language=java) 
 
 ### 성능 요약
 
-메모리: 27.4 MB, 시간: 90.11 ms
+메모리: 406 MB, 시간: 500.31 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 02월 03일 19:44:46
+2025년 02월 03일 20:01:28
 
 ### 문제 설명
 
