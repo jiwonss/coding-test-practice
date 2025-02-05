@@ -1,21 +1,21 @@
+from collections import defaultdict
+
 def solution(survey, choices):
-    result = [{"R" : 0, "T" : 0}, {"C" : 0, "F" : 0}, {"J" : 0, "M" : 0}, {"A" : 0, "N" : 0}]
-    number = {"RT" : 0, "TR" : 0, "CF" : 1, "FC" : 1, "JM" : 2, "MJ" : 2, "AN" : 3, "NA" : 3 }
+    result = defaultdict(int)
     score = [0, 3, 2, 1, 0, 1, 2, 3]
-    
-    for i in range(len(survey)):
-        c, s = choices[i], survey[i]
-        idx = number[s]
+    for s, c in zip(survey, choices):
         if c < 4:
-            result[idx][s[0]] += score[c]
+            result[s[0]] += score[c]
         if c > 4:
-            result[idx][s[1]] += score[c]
+            result[s[1]] += score[c]
     
+    p_type = ["RT", "CF", "JM", "AN"]
     answer = ''
     for i in range(4):
-        a, b = result[i].items()
-        if a[1] >= b[1]:
-            answer += a[0]
+        p = p_type[i]
+        a, b = result[p[0]], result[p[1]]
+        if a >= b:
+            answer += p[0]
         else:
-            answer += b[0]
+            answer += p[1]
     return answer
