@@ -1,19 +1,18 @@
 from collections import defaultdict
 
 def solution(id_list, report, k):
-    log = defaultdict(set)
+    report = set(report)
+    user_idx = {_id : i for i, _id in enumerate(id_list)}
+    
+    log = defaultdict(list)
     for r in report:
         a, b = r.split()
-        log[b].add(a)
+        log[b].append(a)
     
-    result = defaultdict(int)
+    answer = [0] * len(id_list)
     for key, value in log.items():
         if len(value) < k:
             continue
         for v in value:
-            result[v] += 1
-    
-    answer = []
-    for id in id_list:
-        answer.append(result[id])
+            answer[user_idx[v]] += 1
     return answer
