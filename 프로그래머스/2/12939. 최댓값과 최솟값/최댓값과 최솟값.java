@@ -1,20 +1,13 @@
-import java.util.*;
-
 class Solution {
     public String solution(String s) {
-        String[] arr = s.split(" ");
-
-        List<Integer> number = new ArrayList();
-        for (String a : arr) {
-            number.add(Integer.parseInt(a));
+        String[] num = s.split(" ");
+        
+        int max = Integer.MIN_VALUE; int min = Integer.MAX_VALUE;
+        for (int i = 0; i < num.length; i++) {
+            int n = Integer.parseInt(num[i]);
+            max = Math.max(max, n);
+            min = Math.min(min, n);
         }
-        
-        Collections.sort(number);
-        
-        String min = String.valueOf(number.get(0));
-        String max = String.valueOf(number.get(number.size() - 1));
-        String answer = min + " " + max;
-        
-        return answer;
+        return String.valueOf(min) + " " + String.valueOf(max);
     }
 }
