@@ -1,9 +1,11 @@
 def solution(elements):
     n = len(elements)
-    elements *= 2
-    
     answer = set()
-    for i in range(1, n + 1):
-        for j in range(n):
-            answer.add(sum(elements[j:j + i]))
+    for size in range(1, n + 1):
+        cur_sum = sum(elements[:size])
+        answer.add(cur_sum)
+        for i in range(n):
+            cur_sum -= elements[i]
+            cur_sum += elements[(i + size) % n]
+            answer.add(cur_sum)
     return len(answer)
