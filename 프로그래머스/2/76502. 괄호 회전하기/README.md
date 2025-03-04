@@ -1,10 +1,10 @@
 # [level 2] 괄호 회전하기 - 76502 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/76502) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/76502?language=java) 
 
 ### 성능 요약
 
-메모리: 9.96 MB, 시간: 84.59 ms
+메모리: 77.5 MB, 시간: 23.60 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 03월 04일 21:44:50
+2025년 03월 04일 22:02:49
 
 ### 문제 설명
 
@@ -28,14 +28,14 @@
 <li>만약 <code>A</code>, <code>B</code>가 올바른 괄호 문자열이라면, <code>AB</code> 도 올바른 괄호 문자열입니다. 예를 들어, <code>{}</code> 와 <code>([])</code> 가 올바른 괄호 문자열이므로, <code>{}([])</code> 도 올바른 괄호 문자열입니다.</li>
 </ul>
 
-<p>대괄호, 중괄호, 그리고 소괄호로 이루어진 문자열 <code>s</code>가 매개변수로 주어집니다. 이 <code>s</code>를 왼쪽으로 x (<em>0 ≤ x &lt; (<code>s</code>의 길이)</em>) 칸만큼 회전시켰을 때 <code>s</code>가 올바른 괄호 문자열이 되게 하는 x의 개수를 return 하도록 solution 함수를 완성해주세<ah_el_jm_1719826228932 data-markjs="true" style="background-color: #FFFF00FF!important;">요.</ah_el_jm_1719826228932></p>
+<p>대괄호, 중괄호, 그리고 소괄호로 이루어진 문자열 <code>s</code>가 매개변수로 주어집니다. 이 <code>s</code>를 왼쪽으로 x (<em>0 ≤ x &lt; (<code>s</code>의 길이)</em>) 칸만큼 회전시켰을 때 <code>s</code>가 올바른 괄호 문자열이 되게 하는 x의 개수를 return 하도록 solution 함수를 완성해주세요.</p>
 
 <hr>
 
 <h5>제한사항</h5>
 
 <ul>
-<li>s의 길<ah_el_jm_1735206188065 data-markjs="true" style="background-color: #FFFF00FF!important;">이는</ah_el_jm_1735206188065> 1 이상 1,000 이하입니다.</li>
+<li>s의 길이는 1 이상 1,000 이하입니다.</li>
 </ul>
 
 <hr>
