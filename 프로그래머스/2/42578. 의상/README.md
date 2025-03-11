@@ -1,10 +1,10 @@
 # [level 2] 의상 - 42578 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42578) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42578?language=java) 
 
 ### 성능 요약
 
-메모리: 10 MB, 시간: 0.03 ms
+메모리: 82.9 MB, 시간: 0.16 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 03월 10일 23:07:20
+2025년 03월 11일 22:26:40
 
 ### 문제 설명
 
@@ -53,7 +53,7 @@
 <li>코니는 하루에 최소 한 개의 의상은 입습니다.</li>
 </ul>
 
-<p>코니가 가진 의상들이 담긴 2차원 배열 clothes가 주어질 때 서로 다른 옷의 조합의 수를 return 하도록 solution 함수를 작성해주세<ah_el_jm_1719826228932 data-markjs="true" style="background-color: #FFFF00FF!important;">요.</ah_el_jm_1719826228932></p>
+<p>코니가 가진 의상들이 담긴 2차원 배열 clothes가 주어질 때 서로 다른 옷의 조합의 수를 return 하도록 solution 함수를 작성해주세요.</p>
 
 <hr>
 
@@ -64,7 +64,7 @@
 <li>코니가 가진 의상의 수는 1개 이상 30개 이하입니다.</li>
 <li>같은 이름을 가진 의상은 존재하지 않습니다.</li>
 <li>clothes의 모든 원소는 문자열로 이루어져 있습니다.</li>
-<li>모든 문자열의 길<ah_el_jm_1735206188065 data-markjs="true" style="background-color: #FFFF00FF!important;">이는</ah_el_jm_1735206188065> 1 이상 20 이하인 자연수이고 알파벳 소문자 또는 '_' 로만 이루어져 있습니다.</li>
+<li>모든 문자열의 길이는 1 이상 20 이하인 자연수이고 알파벳 소문자 또는 '_' 로만 이루어져 있습니다.</li>
 </ul>
 
 <h5>입출력 예</h5>
