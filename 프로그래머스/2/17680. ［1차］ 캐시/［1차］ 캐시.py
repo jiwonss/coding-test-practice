@@ -7,8 +7,7 @@ def solution(cacheSize, cities):
         if city in cache:
             answer += 1
             cache.remove(city)
-            cache.append(city)
         else:
             answer += 5
-            cache.append(city)
+        cache.append(city)
     return answer
