@@ -1,10 +1,10 @@
 # [level 2] 전화번호 목록 - 42577 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42577) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42577?language=java) 
 
 ### 성능 요약
 
-메모리: 29.9 MB, 시간: 101.32 ms
+메모리: 98.7 MB, 시간: 353.93 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 03월 15일 23:04:30
+2025년 03월 16일 19:38:56
 
 ### 문제 설명
 
@@ -24,20 +24,20 @@
 전화번호가 다음과 같을 경우, 구조대 전화번호는 영석이의 전화번호의 접두사입니다.</p>
 
 <ul>
-<li>구조대 : 119</li>
-<li>박준영 : 97 674 223</li>
-<li>지영석 : 11 9552 4421</li>
+<li>구조<ah_el_jm_1719825405095 data-markjs="true" style="background-color: #FFFF00FF!important;">대 : 1</ah_el_jm_1719825405095>19</li>
+<li>박준<ah_el_jm_1719825405095 data-markjs="true" style="background-color: #FFFF00FF!important;">영 : 9</ah_el_jm_1719825405095>7 674 223</li>
+<li>지영<ah_el_jm_1719825405095 data-markjs="true" style="background-color: #FFFF00FF!important;">석 : 1</ah_el_jm_1719825405095>1 9552 4421</li>
 </ul>
 
-<p>전화번호부에 적힌 전화번호를 담은 배열 phone_book 이 solution 함수의 매개변수로 주어질 때, 어떤 번호가 다른 번호의 접두어인 경우가 있으면 false를 그렇지 않으면 true를 return 하도록 solution 함수를 작성해주세요.</p>
+<p>전화번호부에 적힌 전화번호를 담은 배열 phone_book 이 solution 함수의 매개변수로 주어질 때, 어떤 번호가 다른 번호의 접두어인 경우가 있으면 false를 그렇지 않으면 true를 return 하도록 solution 함수를 작성해주세<ah_el_jm_1719826228932 data-markjs="true" style="background-color: #FFFF00FF!important;">요.</ah_el_jm_1719826228932></p>
 
 <h5>제한 사항</h5>
 
 <ul>
-<li>phone_book의 길이는 1 이상 1,000,000 이하입니다.
+<li>phone_book의 길<ah_el_jm_1735206188065 data-markjs="true" style="background-color: #FFFF00FF!important;">이는</ah_el_jm_1735206188065> 1 이상 1,000,000 이하입니다.
 
 <ul>
-<li>각 전화번호의 길이는 1 이상 20 이하입니다.</li>
+<li>각 전화번호의 길<ah_el_jm_1735206188065 data-markjs="true" style="background-color: #FFFF00FF!important;">이는</ah_el_jm_1735206188065> 1 이상 20 이하입니다.</li>
 <li>같은 전화번호가 중복해서 들어있지 않습니다.</li>
 </ul></li>
 </ul>
