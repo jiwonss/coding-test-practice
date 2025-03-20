@@ -1,12 +1,18 @@
 from sys import stdin
 input = stdin.readline
 
-n = int(input())
-serial_nums = []
-for _ in range(n):
-    t = input().strip()
-    num = sum([int(a) for a in t if a.isdigit()])
-    serial_nums.append([t, num])
+def solve():
+    N = int(input())
+    serial_number = [input().strip() for _ in range(N)]
+    
+    serial_number.sort(key=lambda x : (
+        len(x),
+        sum([int(c) for c in x if c.isdigit()]),
+        x
+    ))
+    
+    print(*serial_number, sep="\n")
 
-for num in sorted(serial_nums, key=lambda x: (len(x[0]), x[1], x[0])):
-    print(num[0])
+
+if __name__ == "__main__":
+    solve()
