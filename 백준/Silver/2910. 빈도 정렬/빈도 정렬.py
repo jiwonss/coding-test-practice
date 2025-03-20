@@ -1,20 +1,21 @@
 from sys import stdin
-from collections import defaultdict
+
 input = stdin.readline
 
 
 def solve():
     N, C = map(int, input().split())
-    arr = list(map(int, input().split()))
+    message = list(input().split())
 
-    temp = defaultdict(int)
-    for a in arr:
-        temp[a] += 1
+    counter = {}
+    for i, m in enumerate(message):
+        if not counter.get(m):
+            counter[m] = [i, 1]
+        else:
+            counter[m][1] += 1
 
-    result = sorted(temp.items(), key=lambda x: -x[1])
-    for k, v in result:
-        for _ in range(v):
-            print(k, end=' ')
+    for c in sorted(counter.items(), key=lambda x: (-x[1][1], x[1][0])):
+        print((c[0] + " ") * c[1][1], end="")
 
 
 if __name__ == "__main__":
