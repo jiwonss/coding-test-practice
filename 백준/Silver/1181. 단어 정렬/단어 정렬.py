@@ -1,14 +1,15 @@
 from sys import stdin
+
 input = stdin.readline
 
 
 def solve():
     N = int(input())
-    word = {input().strip() for _ in range(N)}
+    word = list(set([input().strip() for _ in range(N)]))
 
-    result = sorted(word, key=lambda x: (len(x), x))
-    for r in result:
-        print(r)
+    word.sort(key=lambda x: (len(x), x))
+
+    print(*word, sep="\n")
 
 
 if __name__ == "__main__":
