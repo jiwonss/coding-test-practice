@@ -1,10 +1,10 @@
 # [level 2] 뒤에 있는 큰 수 찾기 - 154539 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/154539) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/154539?language=java) 
 
 ### 성능 요약
 
-메모리: 73.8 MB, 시간: 409.48 ms
+메모리: 208 MB, 시간: 80.50 ms
 
 ### 구분
 
@@ -16,12 +16,12 @@
 
 ### 제출 일자
 
-2025년 03월 24일 23:20:58
+2025년 03월 29일 22:18:07
 
 ### 문제 설명
 
 <p>정수로 이루어진 배열 <code>numbers</code>가 있습니다. 배열 의 각 원소들에 대해 자신보다 뒤에 있는 숫자 중에서 자신보다 크면서 가장 가까이 있는 수를 뒷 큰수라고 합니다.<br>
-정수 배열 <code>numbers</code>가 매개변수로 주어질 때, 모든 원소에 대한 뒷 큰수들을 차례로 담은 배열을 return 하도록 solution 함수를 완성해주세<ah_el_jm_1719826228932 data-markjs="true" style="background-color: #FFFF00FF!important;">요.</ah_el_jm_1719826228932> 단, 뒷 큰수가 존재하지 않는 원소는 -1을 담습니다.</p>
+정수 배열 <code>numbers</code>가 매개변수로 주어질 때, 모든 원소에 대한 뒷 큰수들을 차례로 담은 배열을 return 하도록 solution 함수를 완성해주세요. 단, 뒷 큰수가 존재하지 않는 원소는 -1을 담습니다.</p>
 
 <hr>
 
