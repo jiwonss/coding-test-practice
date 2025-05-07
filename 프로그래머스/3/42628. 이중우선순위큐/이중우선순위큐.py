@@ -1,8 +1,6 @@
 from heapq import heappush, heappop
 
 def solution(operations):
-    answer = []
-    
     max_q, min_q = [], []
     for operation in operations:
         op, n = operation.split()
