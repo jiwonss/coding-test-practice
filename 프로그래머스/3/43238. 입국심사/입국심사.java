@@ -1,7 +1,7 @@
 class Solution {
     public long solution(int n, int[] times) {
         long start = 0;
-        long end = 10000000000L * 100000L;
+        long end = (long) times[times.length - 1] * n;
         
         while (start < end) {
             long mid = (start + end) / 2;
