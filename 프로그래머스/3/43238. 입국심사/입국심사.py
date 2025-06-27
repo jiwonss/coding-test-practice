@@ -4,8 +4,8 @@ def solution(n, times):
         mid = (start + end) // 2
         
         cnt = 0
-        for time in times:
-            cnt += mid // time
+        for t in times:
+            cnt += mid // t
         
         if cnt < n:
             start = mid + 1
