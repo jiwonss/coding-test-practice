@@ -1,73 +1,71 @@
 from sys import stdin
 from copy import deepcopy
+
 input = stdin.readline
 
-dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
+dx, dy = [1, 0, -1, 0], [0, 1, 0, -1]
 
 mode = [
     [],
     [[0], [1], [2], [3]],
     [[0, 2], [1, 3]],
     [[0, 1], [1, 2], [2, 3], [3, 0]],
-    [[0, 1, 2], [0, 1, 3], [0, 2, 3], [1, 2, 3]],
-    [[0, 1, 2, 3]]
+    [[0, 1, 2], [1, 2, 3], [2, 3, 0], [3, 0, 1]],
+    [[0, 1, 2, 3]],
 ]
 
 
-def out_of_bounds(x, y):
-    return not (0 <= x < N and 0 <= y < M)
-
-
-def count_blind_spots(office):
+def count(office):
     cnt = 0
     for i in range(N):
         cnt += office[i].count(0)
     return cnt
 
 
-def mark(office, direction, x, y):
-    for d in direction:
+def mark(office, d, x, y):
+    for i in d:
         _x, _y = x, y
         while True:
-            nx = _x + dx[d]
-            ny = _y + dy[d]
+            nx, ny = _x + dx[i], _y + dy[i]
 
-            if out_of_bounds(nx, ny) or office[nx][ny] == 6:
+            if not (0 <= nx < N and 0 <= ny < M) or office[nx][ny] == 6:
                 break
 
             if office[nx][ny] == 0:
                 office[nx][ny] = 7
+
             _x, _y = nx, ny
     return office
 
 
-def watch(office, k):
+def dfs(office, k):
     global result
 
     if k == len(cctv):
-        result = min(result, count_blind_spots(office))
+        result = min(result, count(office))
         return
 
-    n, x, y = cctv[k]
-    for i in mode[n]:
-        copy_office = mark(deepcopy(office), i, x, y)
-        watch(copy_office, k + 1)
+    x, y, n = cctv[k]
+    for d in mode[n]:
+        copy_office = mark(deepcopy(office), d, x, y)
+        dfs(copy_office, k + 1)
 
 
 def solve():
-    global N, M, office, cctv, result
+    global N, M, cctv, result
+
     N, M = map(int, input().split())
 
     office, cctv = [], []
-    for i in range(N):
+    for x in range(N):
         office.append(list(map(int, input().split())))
-        for j in range(M):
-            t = office[i][j]
-            if 0 < t < 6:
-                cctv.append([t, i, j])
+        for y in range(M):
+            if office[x][y] in [0, 6]:
+                continue
+            cctv.append([x, y, office[x][y]])
 
     result = N * M
-    watch(office, 0)
+    dfs(office, 0)
     print(result)
 
 
