@@ -1,61 +1,61 @@
 from sys import stdin
+
 input = stdin.readline
 
 
-def rotate_sticker(sticker):
-    n, m = len(sticker), len(sticker[0])
-    temp = [[0] * n for _ in range(m)]
-    for i in range(m):
-        for j in range(n):
-            temp[i][j] = sticker[n - j - 1][i]
+def rotate(sticker):
+    r, c = len(sticker), len(sticker[0])
+    temp = [[0] * r for _ in range(c)]
+    for x in range(c):
+        for y in range(r):
+            temp[x][y] = sticker[r - y - 1][x]
     return temp
 
 
-def check_sticker_fit(sticker, x, y):
-    n, m = len(sticker), len(sticker[0])
-    for i in range(n):
-        for j in range(m):
+def attach(sticker, x, y):
+    r, c = len(sticker), len(sticker[0])
+    for i in range(r):
+        for j in range(c):
+            if sticker[i][j]:
+                laptop[x + i][y + j] = 1
+
+
+def check(sticker, x, y):
+    r, c = len(sticker), len(sticker[0])
+    for i in range(r):
+        for j in range(c):
             if sticker[i][j] == 0:
                 continue
-            if labtop[x + i][y + j]:
-                return 0
-    return 1
+            if laptop[x + i][y + j]:
+                return False
+    return True
 
 
-def attach_sticker_to_laptop(sticker, x, y):
-    n, m = len(sticker), len(sticker[0])
-    for i in range(n):
-        for j in range(m):
-            if sticker[i][j]:
-                labtop[x + i][y + j] = 1
-
-
-def attach_sticker(sticker):
+def attemp(sticker):
     cnt = 0
     while cnt < 4:
-        n, m = len(sticker), len(sticker[0])
-        for i in range(N - n + 1):
-            for j in range(M - m + 1):
-                if check_sticker_fit(sticker, i, j):
-                    attach_sticker_to_laptop(sticker, i, j)
+        r, c = len(sticker), len(sticker[0])
+        for x in range(N - r + 1):
+            for y in range(M - c + 1):
+                if check(sticker, x, y):
+                    attach(sticker, x, y)
                     return
-        sticker = rotate_sticker(sticker)
+        sticker = rotate(sticker)
         cnt += 1
 
 
 def solve():
-    global N, M, K, labtop
+    global N, M, laptop
 
     N, M, K = map(int, input().split())
 
-    labtop = [[0] * M for _ in range(N)]
-
+    laptop = [[0] * M for _ in range(N)]
     for _ in range(K):
         R, C = map(int, input().split())
         sticker = [list(map(int, input().split())) for _ in range(R)]
-        attach_sticker(sticker)
+        attemp(sticker)
 
-    result = sum([sum(x) for x in labtop])
+    result = sum([sum(x) for x in laptop])
     print(result)
 
 
