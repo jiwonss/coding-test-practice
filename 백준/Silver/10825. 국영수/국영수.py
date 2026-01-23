@@ -1,16 +1,16 @@
 from sys import stdin
+
 input = stdin.readline
 
 
 def solve():
     N = int(input())
-
-    score = []
+    student = []
     for _ in range(N):
-        temp = input().split()
-        score.append([temp[0], int(temp[1]), int(temp[2]), int(temp[3])])
+        t = input().split()
+        student.append([t[0], int(t[1]), int(t[2]), int(t[3])])
 
-    result = sorted(score, key=lambda x: (-x[1], x[2], -x[3], x[0]))
+    result = sorted(student, key=lambda x: (-x[1], x[2], -x[3], x[0]))
     for r in result:
         print(r[0])
 
