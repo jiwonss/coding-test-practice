@@ -9,6 +9,7 @@ def dfs(k):
     for i in range(1, n + 1):
         if visited[i]:
             continue
+            
         visited[i] = 1
         result.append(i)
         dfs(k + 1)
